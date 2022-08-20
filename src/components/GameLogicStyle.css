@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Modak&display=swap");
 :root {
   --random-location-top: 30%;
-  --random-location-left: 30%
+  --random-location-left: 30%;
 }
-
 
 .game-image {
   height: 24vh;
@@ -11,6 +12,8 @@
   outline: 0.1rem solid gray;
   box-shadow: 0 0 1rem 0.1rem gray;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .game-images-container {
@@ -21,6 +24,8 @@
   width: 100%;
   gap: 1rem;
   padding: 2rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
   flex-wrap: wrap;
   overflow: hidden;
 }
@@ -30,7 +35,84 @@ img {
   height: 100%;
   border-radius: 1rem;
   object-fit: cover;
-  object-position: 0% 0%;
+  object-position: 0% 20%;
+}
+
+.char-name-display {
+  font-size: 2.5rem;
+  color: black;
+  position: relative;
+  bottom: 21.5%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  width: fit-content;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  font-family: "Righteous", cursive;
+}
+
+.miss-card {
+  position: relative;
+  bottom: 70%;
+  z-index: 9999;
+  font-size: 3rem;
+  width: fit-content;
+  height: fit-content;
+  align-self: center;
+  color: rgb(198, 30, 30);
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+  font-family: "Modak", cursive;
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .miss-card-animation {
+    animation: Miss-animation 1 0.7s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+  }
+}
+
+@keyframes Miss-animation {
+  0% {
+    bottom: 100%;
+  }
+  100% {
+    bottom: 150%;
+  }
+}
+
+.hit-card {
+  position: relative;
+  bottom: 70%;
+  z-index: 9999;
+  font-size: 3rem;
+  width: fit-content;
+  height: fit-content;
+  align-self: center;
+  color: rgb(89, 198, 30);
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+  font-family: "Modak", cursive;
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hit-card-animation {
+    animation: Hit-animation 1 0.7s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+  }
+}
+
+@keyframes Hit-animation {
+  0% {
+    bottom: 100%;
+  }
+  100% {
+    bottom: 150%;
+  }
 }
 
 .no-pointer-events {
@@ -59,7 +141,7 @@ img {
 
 @media (prefers-reduced-motion: no-preference) {
   .selected-image-animation {
-    animation: Image-Selected 1 .5s;
+    animation: Image-Selected 1 0.5s;
     animation-iteration-count: 1;
     position: relative;
   }
@@ -80,7 +162,7 @@ img {
 
 @media (prefers-reduced-motion: no-preference) {
   .game-image-render-animation {
-    animation: Image-render 1 .5s;
+    animation: Image-render 1 0.5s;
     animation-iteration-count: 1;
     position: relative;
   }

@@ -1,0 +1,11 @@
+
+
+#victory-screen {
+    position: absolute;
+    background-color: white;
+    padding: 10rem;
+    color: rgb(27, 153, 211);
+    top: 50%;
+    left: 20%;
+    font-size: 5rem;
+}
