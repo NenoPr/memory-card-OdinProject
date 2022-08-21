@@ -1,11 +1,91 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 #victory-screen {
-    position: absolute;
-    background-color: white;
-    padding: 10rem;
-    color: rgb(27, 153, 211);
-    top: 50%;
-    left: 20%;
-    font-size: 5rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  background-color: white;
+  padding: 3%;
+  color: rgb(27, 153, 211);
+  margin: auto;
+  border: 0.1rem solid gray;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem 0.1rem gray;
+  font-size: 500%;
+  font-family: "Righteous", cursive;
+  z-index: 999999;
+  transition: width 1s;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    #victory-screen {
+      animation: Victory-animation .5s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+    }
+  }
+  
+  @keyframes Victory-animation {
+    0% {
+      transform: scale(0);
+    }
+    60% {
+      transform: scale(1.1);
+    }
+    80% {
+        transform: scale(.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+  }
+
+#paimon-victory-screen {
+  position: relative;
+  display: inline;
+  width: 30%;
+  margin-top: -8%;
+  margin-bottom: -5%;
+  align-self: center;
+}
+
+.victory-text {
+  font-size: 2rem;
+  color: rgb(117, 117, 117);
+  font-family: "Righteous", cursive;
+}
+
+.victory-button {
+  padding: 2rem;
+  background-color: rgb(32, 122, 201);
+  color: white;
+  font-size: 2rem;
+  border-radius: 1rem;
+  font-family: "Righteous", cursive;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .victory-button:hover {
+    animation: Select-animation infinite 0.7s;
+    animation-timing-function: ease;
+  }
+}
+
+@keyframes Select-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.victory-button:hover {
+  box-shadow: 0 0 1rem 0.1rem gray;
 }

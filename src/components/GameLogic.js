@@ -7,14 +7,13 @@ import "./GameLogicStyle.css";
 const GameLogic = (difficulty) => {
   const [score, setScore] = useState([]);
   const [bestScore, setBestScore] = useState(0);
-  console.log(difficulty);
   const [gameCards, setGameCards] = useState(getImagesFromFolder(difficulty));
-  const [winCondition, setWinCondition] = useState(false)
+  const [winCondition, setWinCondition] = useState("false");
 
   useEffect(() => {
-    console.log("updated")
-    setGameCards(getImagesFromFolder(difficulty))
-  }, [difficulty])
+    console.log("updated");
+    setGameCards(getImagesFromFolder(difficulty));
+  }, [difficulty]);
 
   // COMPONENT MOUNTED
   useEffect(() => {
@@ -58,14 +57,30 @@ const GameLogic = (difficulty) => {
     console.log("GameLogic Component Updated");
   }, [score, bestScore, gameCards]);
 
-  // Reset current score and update best score if possible
-  const resetScore = () => {
+  useEffect(() => {
+    if (score.length === gameCards.length) {
+      if (score.length >= bestScore) {
+        document
+          .getElementById("best-score-keeper")
+          .classList.add("score-change-animation");
+        setBestScore(score.length);
+      }
+      console.log("You Win!");
+      setScore((arr) => []);
+      setWinCondition("true");
+      return;
+    }
+
     if (score.length > bestScore) {
       document
         .getElementById("best-score-keeper")
         .classList.add("score-change-animation");
       setBestScore(score.length);
     }
+  }, [score]);
+
+  // Reset current score and update best score if possible
+  const resetScore = () => {
     setScore((arr) => []);
   };
 
@@ -105,10 +120,7 @@ const GameLogic = (difficulty) => {
       if (checkItem)
         setScore((prevScoreList) => [...prevScoreList, e.target.id]);
     }, 500);
-    if (score.length === gameCards.length) {
-      console.log("You Win!")
-      setWinCondition(true)
-    }
+    console.log("length's", score.length, gameCards.length);
     document
       .getElementById("current-score-keeper")
       .classList.remove("score-change-animation-red");
@@ -169,22 +181,32 @@ const GameLogic = (difficulty) => {
 
   //displays the characters name when entering card element
   const displayCharName = (e) => {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     let idName = e.target.id;
-    console.log(idName);
+    // console.log(idName);
     let name = "";
     for (let i = 10; i < idName.length; i++) {
       if (idName[i] === "_") break;
       name += idName[i];
     }
     e.target.nextElementSibling.innerText = name;
-    console.log(name);
+    // console.log(name);
   };
 
   // removes the characters name when the mouse leaves the card element
   const removeCharName = (e) => {
     e.target.nextElementSibling.innerText = "";
   };
+
+  const playAgain = () => {
+    resetScore();
+    setWinCondition("false");
+  };
+
+  useEffect(() => {
+    setGameCards(getImagesFromFolder(difficulty));
+    setScore([]);
+  }, [winCondition]);
 
   return (
     <div className="game-images-container">
@@ -211,7 +233,7 @@ const GameLogic = (difficulty) => {
             </div>
           ))
         : console.log("No Cards Found")}
-        <VictoryScreen name={winCondition} />
+      <VictoryScreen name={{ winCondition, difficulty, playAgain }} />
     </div>
   );
 };

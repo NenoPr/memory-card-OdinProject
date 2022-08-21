@@ -24,11 +24,11 @@ export function getImagesFromFolder(difficulty) {
   let selectedImages = images;
   shuffle(selectedImages);
 
-  if (difficulty.name === "Easy") selectedImages = selectedImages.slice(0, 3);
+  if (difficulty.name === "Easy") selectedImages = selectedImages.slice(0, 8);
   else if (difficulty.name === "Normal")
-    selectedImages = selectedImages.slice(0, 24);
+    selectedImages = selectedImages.slice(0, 18);
   else if (difficulty.name === "Hard")
-    selectedImages = selectedImages.slice(0, 36);
+    selectedImages = selectedImages.slice(0, 32);
   else if (difficulty.name === "Master")
     selectedImages = selectedImages.slice(0, 56);
 

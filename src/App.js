@@ -8,9 +8,9 @@ import paimon from "./images/paimon_sticker_2.png"
 
 const App = () => {
   const difficulty = [
-    { value: "Easy", label: "Easy - 12 Unique Cards" },
-    { value: "Normal", label: "Normal - 24 Unique Cards" },
-    { value: "Hard", label: "Hard - 36 Unique Cards" },
+    { value: "Easy", label: "Easy - 8 Unique Cards" },
+    { value: "Normal", label: "Normal - 18 Unique Cards" },
+    { value: "Hard", label: "Hard - 32 Unique Cards" },
     { value: "Master", label: "Master - 56 Unique Cards" },
   ];
   const [diff, setDiff] = useState("Easy");

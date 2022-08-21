@@ -14,8 +14,6 @@ body {
   margin: 0;
 }
 
-/* -m"Added difficulty setting. Improved the overall design. Added "Nice!" and "Miss" animated pop ups on the card on the selected card. Installed react-select dependecy for select element."  */
-
 .App {
   text-align: center;
   height: 100vh;
@@ -70,8 +68,8 @@ footer {
   width: fit-content;
   height: 7rem;
   padding-left: 1rem;
-  padding-bottom: .5rem;
-  padding-top: .7rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.7rem;
   -webkit-filter: invert(100%);
   filter: invert(100%);
 }
