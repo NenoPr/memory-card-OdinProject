@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/memory-card-OdinProject/static/css/main.e8fd8b8d.css",
-    "main.js": "/memory-card-OdinProject/static/js/main.1aca9a73.js",
+    "main.js": "/memory-card-OdinProject/static/js/main.cf091528.js",
     "static/js/787.7ecbf00c.chunk.js": "/memory-card-OdinProject/static/js/787.7ecbf00c.chunk.js",
     "static/media/Lumine_bg.jpg": "/memory-card-OdinProject/static/media/Lumine_bg.ad39d4e939d4eb47f28c.jpg",
     "static/media/Character_Rosaria_Card.jpg": "/memory-card-OdinProject/static/media/Character_Rosaria_Card.fa74eef60e992eb5a79c.jpg",
@@ -67,11 +67,11 @@
     "static/media/paimon_sticker_2.png": "/memory-card-OdinProject/static/media/paimon_sticker_2.f34fc13b5ebf84552264.png",
     "index.html": "/memory-card-OdinProject/index.html",
     "main.e8fd8b8d.css.map": "/memory-card-OdinProject/static/css/main.e8fd8b8d.css.map",
-    "main.1aca9a73.js.map": "/memory-card-OdinProject/static/js/main.1aca9a73.js.map",
+    "main.cf091528.js.map": "/memory-card-OdinProject/static/js/main.cf091528.js.map",
     "787.7ecbf00c.chunk.js.map": "/memory-card-OdinProject/static/js/787.7ecbf00c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e8fd8b8d.css",
-    "static/js/main.1aca9a73.js"
+    "static/js/main.cf091528.js"
   ]
 }
