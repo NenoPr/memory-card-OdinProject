@@ -10,6 +10,7 @@ const GameLogic = (difficulty) => {
   const [gameCards, setGameCards] = useState(getImagesFromFolder(difficulty));
   const [winCondition, setWinCondition] = useState("false");
 
+  //Updates the gameCards deck based on selected difficulty
   useEffect(() => {
     console.log("updated");
     setGameCards(getImagesFromFolder(difficulty));
@@ -34,6 +35,9 @@ const GameLogic = (difficulty) => {
   }, []);
 
   // COMPONENT DID UPDATE
+  // Creates random variables for animation of cards
+  // Updates the score and best scores values
+  // shuffles the gameCards
   useEffect(() => {
     console.log("gameCards", gameCards);
     setGameCards(shuffle(gameCards, score));
@@ -57,6 +61,8 @@ const GameLogic = (difficulty) => {
     console.log("GameLogic Component Updated");
   }, [score, bestScore, gameCards]);
 
+  // COMPONENT DID UPDATE
+  // Check for game win condition and updates the best score
   useEffect(() => {
     if (score.length === gameCards.length) {
       if (score.length >= bestScore) {
@@ -79,7 +85,7 @@ const GameLogic = (difficulty) => {
     }
   }, [score]);
 
-  // Reset current score and update best score if possible
+  // Reset current score
   const resetScore = () => {
     setScore((arr) => []);
   };
@@ -120,6 +126,7 @@ const GameLogic = (difficulty) => {
       if (checkItem)
         setScore((prevScoreList) => [...prevScoreList, e.target.id]);
     }, 500);
+    // removes the scores animation
     console.log("length's", score.length, gameCards.length);
     document
       .getElementById("current-score-keeper")
@@ -198,11 +205,13 @@ const GameLogic = (difficulty) => {
     e.target.nextElementSibling.innerText = "";
   };
 
+  // Restarts the score and removes the victory screen
   const playAgain = () => {
     resetScore();
     setWinCondition("false");
   };
 
+  // Restarts the game
   useEffect(() => {
     setGameCards(getImagesFromFolder(difficulty));
     setScore([]);
@@ -224,7 +233,9 @@ const GameLogic = (difficulty) => {
                 alt={`image_N.${index}`}
                 key={uniqid()}
                 // remove the excess text for id
-                id={image.replace("/static/media/", "").slice(0, -25)}
+                id={image
+                  .replace("/memory-card-OdinProject/static/media/", "")
+                  .slice(0, -25)}
                 onClick={manageScore}
               />
               <div className="char-name-display"></div>
