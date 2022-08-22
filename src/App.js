@@ -53,7 +53,7 @@ const App = () => {
           <div id="set-game-difficulty">Set The Difficulty</div>
           <Select
             options={difficulty}
-            defaultValue={{ value: "Easy", label: "Easy - 12 Unique Cards" }}
+            defaultValue={{ value: "Easy", label: "Easy - 8 Unique Cards" }}
             onChange={(choice) => setDiffFunction(choice)}
           />
         </div>
